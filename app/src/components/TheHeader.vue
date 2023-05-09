@@ -1,9 +1,17 @@
 <template>
 <div>
 
+    <!-- <img v-bind:src="imgSrc" 
+    v-bind:alt="imgAlt"
+    > -->
+
     <div v-for="(obj, index) in todos"
-    v-bind:key="obj.id"
+    :key="obj.id"
     class="todos-item"
+    >
+    <img 
+    v-if="obj.imgSrc"
+    :src="obj.imgSrc"
     >
         {{ index }} - {{ obj.title }}
     </div>
@@ -17,18 +25,21 @@
         name: 'App',
         data() {
             return {
+                imgAlt: 'Foto de um gatinho',
                 todos: [
   {
     "userId": 1,
     "id": 1,
     "title": "delectus aut autem",
-    "completed": false
+    "completed": false,
+    "imgSrc": 'http://placekitten.com/200/300'
   },
   {
     "userId": 1,
     "id": 2,
     "title": "quis ut nam facilis et officia qui",
-    "completed": false
+    "completed": false,
+    "imgSrc": 'http://placekitten.com/200/300'
   },
   {
     "userId": 1,

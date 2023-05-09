@@ -48,6 +48,7 @@ export default {
 </style>
 
 <!-- 
-v-show: exibe no DOM
+v-show: exibe no DOM porém com display:none
 v-if: não exibe no DOM
+v-bind: ou apenas ":": deixa os atributos dinâmicos
 -->
