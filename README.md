@@ -1,8 +1,8 @@
-# O projeto
+# O projeto ✨
 
-Em andamento
+Em andamento 👨‍💻
 
-# Ecosistema
+# Ecosistema ⚙
 
 * Vue dev tools: debuggar o componente
 * Vue CLI: template para criar o projeto
@@ -12,7 +12,7 @@ Em andamento
 * Nux.js: framework do VueJs, tem um pacote pronto para montar o projeto pensando em performance e estratégia de autenticação
 * Quasar: compila para web, desktop, mobile etc
 
-# Instalação
+# Instalação 🧙‍♂️
 
 **Passo 1:** Instalar o VueJs via Vue CLI:
 
