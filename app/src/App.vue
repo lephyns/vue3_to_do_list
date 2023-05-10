@@ -11,19 +11,19 @@
     <div v-else-if="accessLevel === 'marketing'">Usuário Marketing</div>
     <div v-else>Usuário comum</div>
 
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <!-- <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+// import HelloWorld from "./components/HelloWorld.vue";
 import TheHeader from "./components/TheHeader.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    // HelloWorld,
     TheHeader,
   },
   data() {
@@ -54,4 +54,7 @@ export default {
 v-show -> exibe no DOM porém com display:none
 v-if -> não exibe no DOM
 v-bind: ou apenas ":" -> deixa os atributos dinâmicos
+v-on:click="" ou apenas "@click=""" -> serve para pegar eventos de click por exemplo
+Modificador evento -> Modifica o comportamento original do evento Ex.: .stop, .prevent, .self, .capture, .once, .passive
+Pode ser verificado na documentação do vue: https://vuejs.org/guide/essentials/event-handling.html#event-modifiers
 -->
