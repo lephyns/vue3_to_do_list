@@ -12,7 +12,7 @@ Em andamento 👨‍💻
 * Nux.js: framework do VueJs, tem um pacote pronto para montar o projeto pensando em performance e estratégia de autenticação
 * Quasar: compila para web, desktop, mobile etc
 
-# Instalação 🧙‍♂️
+# Iniciar o projeto 🧙‍♂️
 
 **Passo 1:** Instalar o VueJs via Vue CLI:
 
@@ -21,5 +21,10 @@ No terminal digitar o comando:
 
 Selecionar o preset: Default ([Vue 3] babel, eslint)
 
-Para iniciar o servidor basta digitar o comando abaixo no terminal:
+**Passo 2:** Iniciar o servidor 
+Para colocar o servidor no ar basta digitar o comando abaixo no terminal:
 `$ yarn serve`
+
+# Links úteis
+
+<a href="https://jsonplaceholder.typicode.com/">Json place holder</a>

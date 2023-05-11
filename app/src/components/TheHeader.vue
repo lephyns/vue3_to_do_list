@@ -1,5 +1,60 @@
 <template>
   <div>
+    <div>
+      <h1>Propriedades computadas</h1>
+      <p>
+        São propriedades que para montar um valor precisa ser pegar outros
+        valores (Computed properties). Quando depende de outro valor para ser
+        montado.
+      </p>
+
+      <br />
+
+      <h4>Forma não aconselhável de usar:</h4>
+      {{ user.first_name }} {{ user.last_name }}
+
+      <br />
+
+      <h4>
+        Para verificar o que é pego utilizando a propriedade ".this" visualizar
+        no console
+      </h4>
+      <button @click="click">Click</button>
+
+      <br />
+
+      <h4>
+        Forma correta de se utilizar através de uma função dentro de computed
+      </h4>
+      {{ fullname }}
+
+      <br />
+      <br />
+
+      <h4>Utilizando filtros com a propriedade computed.</h4>
+      <h5>
+        No exemplo abaixo temos uma todo list que ao ser flegada move a todo em
+        aberto para a todo completada
+      </h5>
+
+      <h3>Todos</h3>
+      <div v-for="todo in todos" :key="todo.id">
+        <input v-model="todo.completed" type="checkbox" />
+        {{ todo.title }}
+      </div>
+
+      <h3>Todos em aberto</h3>
+      <div v-for="todo in uncompletedTodos" :key="todo.id">
+        {{ todo.title }}
+        <!-- <span>{{ todo.completed }}</span> -->
+      </div>
+
+      <h3>Todos em completadas</h3>
+      <div v-for="todo in completedTodos" :key="todo.id">
+        {{ todo.title }}
+      </div>
+    </div>
+
     <h1>Eventos</h1>
 
     <p>
@@ -72,10 +127,14 @@
 
     <h1>v-model</h1>
     <p>
-      One-way data binding: quando o sistema exibe a informação ao usuário ex.: propriedade name: 'John Snow'
+      One-way data binding: quando o sistema exibe a informação ao usuário ex.:
+      propriedade name: 'John Snow'
     </p>
     <p>Two-way data binding: quando o usuário coloca a informação no input</p>
-    <p>v-model: é uma diretiva usada em formulários, dentro do input, textarea, checkbox, radio button, entre outros. Foi usado nos exemplos abaixo:</p>
+    <p>
+      v-model: é uma diretiva usada em formulários, dentro do input, textarea,
+      checkbox, radio button, entre outros. Foi usado nos exemplos abaixo:
+    </p>
 
     <br />
     <br />
@@ -132,11 +191,7 @@
     <br />
     <br />
 
-
-    <h1>
-      Atributos dinâmicos
-    </h1>
-
+    <h1>Atributos dinâmicos</h1>
 
     <!-- <h1 :class="classVar"> -->
     <h5 :class="{ title: true, 'title-home': isHome }">Curso Vue 3</h5>
@@ -169,6 +224,10 @@ export default {
   name: "App",
   data() {
     return {
+      user: {
+        first_name: "John",
+        last_name: "Snow",
+      },
       colors: [],
       contract: false,
       newsletter: "",
@@ -236,6 +295,20 @@ export default {
     },
     onKeyUp($evt) {
       console.log("Key up", $evt);
+    },
+    click() {
+      console.log(this.user);
+    },
+  },
+  computed: {
+    fullname() {
+      return `${this.user.first_name} ${this.user.last_name}`;
+    },
+    uncompletedTodos() {
+      return this.todos.filter((todo) => !todo.completed);
+    },
+    completedTodos() {
+      return this.todos.filter((todo) => todo.completed);
     },
   },
 };
