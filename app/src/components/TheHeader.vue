@@ -1,6 +1,45 @@
 <template>
   <div>
     <div>
+      <h1>Observadores (Watch)</h1>
+
+      <p>Monitora o código para executar uma rotina que quisermos</p>
+
+      <div>
+        <input type="text" v-model="petName">
+      {{ petName }}
+      </div>
+
+      <br />
+    <br />
+
+      <div>
+        <select v-model="pageCount">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+        </select>
+
+
+        {{ pageCount }}
+      </div>
+
+      <br />
+    <br />
+
+      <div>
+        <input type="text" v-model="petDetails.ownerFirstName"><br>
+      <input type="text" v-model="petDetails.ownerLastName">
+
+      {{ petDetails.ownerFirstName }} {{ petDetails.ownerLastName }}
+      </div>
+      
+    </div>
+
+    <br />
+    <br />
+
+    <div>
       <h1>1. Propriedades computadas</h1>
       <p>
         São propriedades que para montar um valor precisa ser pegar outros
@@ -228,7 +267,6 @@
         {{ index }} - {{ obj.title }}
       </div>
     </div>
-
   </div>
 </template>
 
@@ -237,15 +275,21 @@ export default {
   name: "App",
   data() {
     return {
+      pageCount: 5,
+      petDetails: {
+        ownerFirstName: '',
+        ownerLastName: ''
+      },
       user: {
-        first_name: "John",
-        last_name: "Snow",
+        first_name: 'John',
+        last_name: 'Snow',
       },
       colors: [],
       contract: false,
-      newsletter: "",
-      name: "John Snow",
-      sports: "",
+      newsletter: '',
+      name: 'John Snow',
+      petName: '',
+      sports: '',
       isHome: true,
       styleClass: {
         color: "orange",
@@ -259,38 +303,64 @@ export default {
         {
           userId: 1,
           id: 1,
-          title: "delectus aut autem",
+          title: "Estudar JavaScript",
           completed: false,
           imgSrc: "http://placekitten.com/200/300",
         },
         {
           userId: 1,
           id: 2,
-          title: "quis ut nam facilis et officia qui",
+          title: "Estudar HTML5",
           completed: false,
           imgSrc: "http://placekitten.com/200/300",
         },
         {
           userId: 1,
           id: 3,
-          title: "fugiat veniam minus",
+          title: "Estudar CSS3",
           completed: false,
         },
         {
           userId: 1,
           id: 4,
-          title: "et porro tempora",
+          title: "Estudar VUE 3",
           completed: true,
         },
         {
           userId: 1,
           id: 5,
-          title:
-            "laboriosam mollitia et enim quasi adipisci quia provident illum",
+          title: "Estudar MongoDB",
           completed: false,
         },
       ],
     };
+  },
+  watch: {
+    petName(newValue, oldValue) {
+      if(newValue.length >= 3 && oldValue.length >= 3) {
+        this.savepetName();
+      }
+    },
+    pageCount() {
+      this.changePage();
+    },
+    petDetails: {
+      hander() { //Quando o petDetails ser alterado vai rodar o que está aqui
+        console.log('Pet details alterado')
+      },
+      deep: true //Quando qqr coisa dentro objeto petDetails foi alterada ele executa o hander
+    }
+  },
+  computed: {
+    fullname() {
+      return `${this.user.first_name} ${this.user.last_name}`;
+    },
+    uncompletedTodos() {
+      return this.todos.filter((todo) => !todo.completed);
+    },
+    completedTodos() {
+      return this.todos.filter((todo) => todo.completed);
+    },
   },
   methods: {
     //Aqui ficam todas as funções que vão ser criadas para o componente para fazer qualquer rotina de programação
@@ -312,17 +382,13 @@ export default {
     click() {
       console.log(this.user);
     },
-  },
-  computed: {
-    fullname() {
-      return `${this.user.first_name} ${this.user.last_name}`;
+    savepetName() {
+      console.log('Ajax');
+      console.log(this.petName);
     },
-    uncompletedTodos() {
-      return this.todos.filter((todo) => !todo.completed);
-    },
-    completedTodos() {
-      return this.todos.filter((todo) => todo.completed);
-    },
+    changePage() {
+      console.log('Ajax changePage');
+    }
   },
 };
 </script>
