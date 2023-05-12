@@ -20,7 +20,7 @@
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
 import TheHeader from "./components/TheHeader.vue";
-import LifeCycle from "./components/LifeCycle.vue";
+import LifeCycle from "./components/Life_Cycle/LifeCycle.vue";
 
 export default {
   name: "App",

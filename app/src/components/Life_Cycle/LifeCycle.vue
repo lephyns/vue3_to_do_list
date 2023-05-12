@@ -102,7 +102,7 @@
 </template>
 
 <script>
-import BeforeUnmount from "../components/BeforeUnmount.vue";
+import BeforeUnmount from "./BeforeUnmount.vue";
 
 export default {
   name: "LifeCycle",

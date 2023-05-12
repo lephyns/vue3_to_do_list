@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>Exemplo componete beforeUnmount e unmounted</p>
+        <p>Exemplo componete beforeUnmount e unmounted que será ocultado quando clicado no botão</p>
     </div>
 </template>
 
