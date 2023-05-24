@@ -1,20 +1,25 @@
 <template>
   <div>
-    <TheSlot>
+    Exemplo de scoped e global
+    <BaseCard />
+  </div>
 
-      <template 
-            v-slot:title>
-        Só é exibido se aqui não estiver vazio pois colocamos um v-if="$slots.title".
+  <div>
+    <TheSlot>
+      <template v-slot:title>
+        Só é exibido se aqui não estiver vazio pois colocamos um
+        v-if="$slots.title".
       </template>
 
       <template v-slot:description>
         <p>Alguma coisa</p>
       </template>
 
-      Se eu colocar qualquer texto fora do v-slot: então entrará para a tag standard slot
+      Se eu colocar qualquer texto fora do v-slot: então entrará para a tag
+      standard slot
     </TheSlot>
 
-    <LifeCycle/>
+    <LifeCycle />
 
     <TheHeader v-if="showHeader" />
 
@@ -36,14 +41,16 @@
 // import HelloWorld from "./components/HelloWorld.vue";
 import TheHeader from "./components/TheHeader.vue";
 import LifeCycle from "./components/Life_Cycle/LifeCycle.vue";
-import TheSlot from "./components/slot/TheSlot.vue"
+import TheSlot from "./components/slot/TheSlot.vue";
+import BaseCard from "./components/BaseCard.vue";
 export default {
   name: "App",
   components: {
     // HelloWorld,
     TheHeader,
     LifeCycle,
-    TheSlot
+    TheSlot,
+    BaseCard,
   },
   data() {
     //Central de variáveis do componente
