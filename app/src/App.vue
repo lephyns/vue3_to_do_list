@@ -1,8 +1,25 @@
 <template>
+
+  <div>
+    <p>Lógica: do pai para filho é usado props. Do filho para o pai é usado emit - event</p>
+    <BaseAlert 
+    v-if="showAlert"
+    variant="success"
+    @close="onClose"/>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
   <div>
     Exemplo de scoped e global
     <BaseCard />
   </div>
+
+  <br>
+  <br>
+  <br>
 
   <div>
     <TheSlot>
@@ -43,6 +60,8 @@ import TheHeader from "./components/TheHeader.vue";
 import LifeCycle from "./components/Life_Cycle/LifeCycle.vue";
 import TheSlot from "./components/slot/TheSlot.vue";
 import BaseCard from "./components/BaseCard.vue";
+import BaseAlert from "./components/BaseAlert.vue";
+
 export default {
   name: "App",
   components: {
@@ -51,10 +70,12 @@ export default {
     LifeCycle,
     TheSlot,
     BaseCard,
+    BaseAlert
   },
   data() {
     //Central de variáveis do componente
     return {
+      showAlert: true,
       showHeader: true,
       firstName: "John",
       lastName: "Snow",
@@ -62,6 +83,12 @@ export default {
       accessLevel: "marketing",
     };
   },
+  methods: {
+    onClose() {
+      this.showAlert = false
+      console.log('on close')
+    }
+  }
 };
 </script>
 
